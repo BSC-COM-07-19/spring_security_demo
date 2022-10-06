@@ -56,6 +56,7 @@ public class UserController {
         return userService.updateUserRole(userName, role, currentUser);
     }
 
+//    Only people with admin roles can disable an account of a user
     @Secured("ROLE_ADMIN")
     @PutMapping("disable-account/{userName}")
     public ResponseEntity<ApiResponse> disableAccount(@PathVariable("userName") String userName){
