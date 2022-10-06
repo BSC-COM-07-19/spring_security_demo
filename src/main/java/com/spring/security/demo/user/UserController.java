@@ -48,6 +48,8 @@ public class UserController {
         return userService.getUser(authentication);
     }
 
+//    Updating a user role requires somebody to have either admin role or
+//    executive role
     @Secured({"ROLE_ADMIN", "ROLE_EXECUTIVE"})
     @PutMapping("update-role/{userName}/{role}")
     public ResponseEntity<ApiResponse> updateUserRole(@PathVariable("userName") String userName,
