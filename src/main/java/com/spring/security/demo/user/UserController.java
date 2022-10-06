@@ -34,6 +34,8 @@ public class UserController {
     }
 
 
+//    Viewing all the users in the system requires somebody to have both admin
+//    and executive roles
     @PreAuthorize("hasRole('ROLE_ADMIN') and hasRole('ROLE_EXECUTIVE')")
     @GetMapping
     public ResponseEntity<PagedModel<?>> getAllUsers(@PositiveOrZero  @RequestParam(value="page", defaultValue = "0") int page,
