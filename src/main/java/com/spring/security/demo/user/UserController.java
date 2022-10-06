@@ -44,6 +44,8 @@ public class UserController {
         return userService.getAllUsers(page, size, pagedResourcesAssembler);
     }
 
+//    getting a profile requires somebody to have any of the defined roles in the
+//    system
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_EXECUTIVE')")
     @GetMapping("/me")
     public ResponseEntity<UserModel> getUserDetails(Authentication authentication){
